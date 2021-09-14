@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  div.content
+    .search-container
+      input(type='text')
+      button.search-button(type='button') search
+    .asset-info-container
+      .general-info
+        span.tokenId
+        br
+        span.last-sold-price
+        br
+        span.same-title-avg-price
+        br
+        span.avgPropertiesPercentage
+      ul.traits-list
+block scripts
+  script(src='/js/explore.js')
