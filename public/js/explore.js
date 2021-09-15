@@ -1,9 +1,21 @@
 $(function() {
-  const totalCrewAmount = 5400
+  const GLOBALS = {
+    totalCrewAmount: 5400
+  }
 
-  $('.search-button').click(function(e){
-    e.preventDefault()
-    getAssetInfo(1)
+  $('.search-input').bind('input', function() {
+    const crewUrlRegex = /https:\/\/opensea.io\/assets\/0x746db7b1728af413c4e2b98216c6171b2fc9d00e\/\d{1,4}/g
+
+    if(crewUrlRegex.test($(this).val())){
+      let urlSplit = $(this).val().split('/')
+      let tokenId = urlSplit[urlSplit.length - 1]
+
+      $('.search-legend').html(`Searching asset with token id: ${tokenId}`)
+
+      getAssetInfo(tokenId)
+    }else{
+      $('.search-legend').html(`This is not an OpenSea crew asset url !`)
+    }
   })
 
   getAssetInfo(299) //test
@@ -18,6 +30,9 @@ $(function() {
       success: function(data) {
         console.log(data)
 
+        $('.same-title-list').empty()
+        $('.traits-list').empty()
+
         const crew = data.data.crew
         const sameTitleCrews = data.data.sameTitleCrews
 
@@ -26,6 +41,7 @@ $(function() {
 
         let sameTitleSoldCount = 0
         let totalPriceWithSameTitle = 0
+
         for (const crew of sameTitleCrews) {
           if (crew.lastSoldPrice) {
             let html = `<li>Crew: ${crew.tokenId} for: ${crew.lastSoldPrice / 1000000000000000000} ETH</li>`
@@ -43,7 +59,7 @@ $(function() {
         $('.last-sold-price').html(`last sold for: ${crew.lastSoldPrice / 1000000000000000000} ETH`)
 
         for (const trait of crew.traits) {
-          let html = `<li>${trait.trait_type}: ${trait.value} (${(trait.trait_count * 100 / totalCrewAmount).toFixed(2)}%)</li>`
+          let html = `<li>${trait.trait_type}: ${trait.value} (${(trait.trait_count * 100 / GLOBALS.totalCrewAmount).toFixed(2)}%)</li>`
           $('.traits-list').append(html)
 
           if(trait.trait_count > 0){
@@ -52,7 +68,7 @@ $(function() {
           }
         }
 
-        let avgPropPercentage = totalTraitCountValue * 100 / (totalCrewAmount * distinctTraitCount)
+        let avgPropPercentage = totalTraitCountValue * 100 / (GLOBALS.totalCrewAmount * distinctTraitCount)
 
         $('.avgPropertiesPercentage').html(`average percentage: ${avgPropPercentage.toFixed(2)}%`)
       },
