@@ -19,6 +19,9 @@ async function fetchAndUpdate(_tokenId){
     crew = (crew) ? crew : new Crew()
 
     crew.tokenId = response.data.token_id
+    crew.name = response.data.name
+    crew.description = response.data.description
+    crew.image = response.data.image_url
 
     if(crew.owner != null){
       crew.owner.username = response.data.owner.user.username

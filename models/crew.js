@@ -2,11 +2,14 @@ const mongoose = require('mongoose')
 
 const CrewSchema = new mongoose.Schema({
   tokenId: Number,
+  image: String,
   owner: {
     username: String,
     address: String,
   },
   lastSoldPrice: Number,
+  name: String,
+  description: String,
   class: String,
   title: String,
   traits: [{
