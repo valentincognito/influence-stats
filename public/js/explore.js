@@ -28,6 +28,9 @@ $(function() {
         let totalPriceWithSameTitle = 0
         for (const crew of sameTitleCrews) {
           if (crew.lastSoldPrice) {
+            let html = `<li>Crew: ${crew.tokenId} for: ${crew.lastSoldPrice / 1000000000000000000} ETH</li>`
+            $('.same-title-list').append(html)
+
             totalPriceWithSameTitle += crew.lastSoldPrice
             sameTitleSoldCount++
           }

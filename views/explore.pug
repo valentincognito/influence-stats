@@ -1,12 +1,14 @@
 extends layout
 
 block content
-  div.content
+  header.explore
     .search-container
-      input(type='text')
-      button.search-button(type='button') search
+      input.search-input(type='text' placeholder='Search OpenSea crew asset url' autofocus)
+      label.search-legend Only crew members url are available for now
+  div.content.explore
     .asset-info-container
       .general-info
+        h3 general info
         span.tokenId
         br
         span.last-sold-price
@@ -14,6 +16,8 @@ block content
         span.same-title-avg-price
         br
         span.avgPropertiesPercentage
+      ul.same-title-list
+      h3 attributes
       ul.traits-list
 block scripts
   script(src='/js/explore.js')

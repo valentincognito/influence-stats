@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville|Open+Sans:400,700');
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300&display=swap');
+
+@font-face {
+  font-family: "Averox";
+  src: url("../fonts/averox/Averox.ttf");
+}
 
 *,
 *:after,
@@ -7,8 +12,8 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-html{height: 100%;font-family: 'Open Sans', sans-serif;font-size: 14px;font-weight: 400;word-break: keep-all;}
-body{margin: 0px;color: #000;background-color: #fcfcfc;}
+html{height: 100%;font-family: 'Jura', sans-serif;font-size: 14px;font-weight: 400;word-break: keep-all;}
+body{margin: 0px;color: #fff;background-color: #000;}
 
 a {background-color: transparent;text-decoration: none;color: inherit;display: block;opacity: 1;transition: all 0.2s ease-in-out;}
 a:active,
@@ -30,9 +35,39 @@ a:hover{outline: 0;text-decoration: none;color: inherit;}
 .clearfix {zoom: 1; /* ie 6/7 */}
 /* helpers end  */
 
+h3{font-family: 'Averox';font-size: 20px; margin: 0px 0px 20px;}
+
 /** common **/
 .content{
   position: relative;
   margin: 0 auto;
-  padding: 40px;
+  padding: 0px;
+}
+
+.content.explore{
+  margin-top: 70px;
+  padding: 20px;
+}
+header.explore{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  padding: 10px 10px;
+  border-bottom: 1px solid rgba(54,167,205);
+  background: rgba(54,167,205,0.5);
+  z-index: 700;
+}
+
+.explore .search-input{
+  width: 100%;
+  padding: 5px 10px;
+  font-family: 'Jura';
+  font-size: 20px;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+  outline: 0;
+}
+.explore .search-legend{
+  font-size: 12px;
 }
