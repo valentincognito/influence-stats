@@ -88,6 +88,14 @@ header.explore{
   opacity: 0;
 }
 
+.explore .image-preview-container{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 300px;
+}
+.explore .image-preview-container img{width: 100%;}
+
 .explore .asset-info-container{
   position: relative;
   visibility: visible;

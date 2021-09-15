@@ -3,7 +3,7 @@ $(function() {
     totalCrewAmount: 5400
   }
 
-  getAssetInfo(1594) //get a random asset 1594, 299
+  getAssetInfo(299) //get a random asset 1594, 299
 
   $('.search-input').bind('input', function() {
     const crewUrlRegex = /https:\/\/opensea.io\/assets\/0x746db7b1728af413c4e2b98216c6171b2fc9d00e\/\d{1,4}/g
@@ -46,6 +46,8 @@ $(function() {
 
         let sameTitleSoldCount = 0
         let totalPriceWithSameTitle = 0
+
+        $('.image-preview-container img').attr('src', crew.image)
 
         for (const crew of sameTitleCrews) {
           if (crew.lastSoldPrice) {
