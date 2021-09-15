@@ -3,10 +3,14 @@ extends layout
 block content
   header.explore
     .search-container
-      input.search-input(type='text' placeholder='Search OpenSea crew asset url' autofocus)
+      input.search-input(type='text' placeholder='Search OpenSea crew asset url' onfocus="this.value=''" autofocus)
       label.search-legend Only crew members url are available for now
   div.content.explore
-    .asset-info-container
+    .loading
+      .spinner
+        .double-bounce1
+        .double-bounce2
+    .asset-info-container.hide
       .general-info
         h3 general info
         span.tokenId
@@ -16,6 +20,7 @@ block content
         span.same-title-avg-price
         br
         span.avgPropertiesPercentage
+      h3 similar assets
       ul.same-title-list
       h3 attributes
       ul.traits-list
