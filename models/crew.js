@@ -10,6 +10,7 @@ const CrewSchema = new mongoose.Schema({
   lastSoldPrice: Number,
   name: String,
   description: String,
+  classTier: Number,
   class: String,
   title: String,
   traits: [{
