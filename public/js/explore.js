@@ -59,8 +59,10 @@ $(function() {
           }
         }
 
+        $('.title-tier-info').html(`[ TIER ${crew.titleTier} ]`)
+
         const avgPriceWithSameTitle = totalPriceWithSameTitle / sameTitleSoldCount
-        $('.same-title-avg-price').html(`avg price with same title: ${avgPriceWithSameTitle / 1000000000000000000} ETH`)
+        $('.same-title-avg-price').html(`avg price with same title: ${(avgPriceWithSameTitle / 1000000000000000000).toFixed(4)} ETH`)
 
         $('.tokenId').html(`token id: ${crew.tokenId}`)
 

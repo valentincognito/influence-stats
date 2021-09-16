@@ -39,6 +39,7 @@ a:hover{outline: 0;text-decoration: none;color: inherit;}
 .txt-blue{color: rgb(54,167,205);}
 
 ul{list-style-type: none;padding: 0px;}
+li{padding: 2px 0px;}
 
 h3{font-family: 'Averox';font-size: 20px; margin: 20px 0px 20px;}
 
@@ -60,7 +61,7 @@ header.explore{
   width: 100%;
   padding: 20px 20px;
   border-bottom: 1px solid rgb(54,167,205);
-  background: rgba(54,167,205,0.5);
+  background: rgba(54,167,205,0.75);
   z-index: 700;
 }
 
